@@ -1,9 +1,15 @@
 {
-  "name": "ngo-project-root",
+  "name": "ngo-management-system",
   "version": "1.0.0",
+  "description": "NGO Management System — monorepo root",
+  "private": true,
+  "engines": {
+    "node": ">=18.x"
+  },
   "scripts": {
-    "postinstall": "npm install --prefix server && npm install --prefix client",
-    "build": "npm run build --prefix client && rm -rf public && mv client/dist public",
-    "dev": "npm run dev --prefix server & npm run dev --prefix client"
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd client && npm install && npm run build",
+    "install:all": "cd server && npm install && cd ../client && npm install"
   }
 }
